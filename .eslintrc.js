@@ -13,6 +13,11 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', 'prettier'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   rules: {
     'no-unused-vars': 'warn',
     'no-console': 'off',
@@ -20,5 +25,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    'import/prefer-default-export': 'off',
+    'no-restricted-exports': 'off',
   },
 };
