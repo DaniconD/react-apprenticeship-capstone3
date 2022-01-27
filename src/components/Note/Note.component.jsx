@@ -1,12 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container } from '../StyledComponents/StyledComponentsList';
+import { BiArchiveIn } from 'react-icons/bi';
+import {
+  NoteContainer,
+  NoteFooter,
+} from '../StyledComponents/StyledComponentsList';
 
 function Note() {
   return (
-    <Container>
-      <Link to="/notes">this is a note</Link>
-    </Container>
+    <NoteContainer>
+      <input type="text" placeholder="Add some text..." onChange={() => {}} />
+      <NoteFooter>
+        <input type="button" value="Select a color" />
+        <BiArchiveIn size="1.3em" />
+      </NoteFooter>
+    </NoteContainer>
   );
 }
 

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Login from '../Login';
-import Notes from '../Notes';
+import NotesList from '../NotesList';
 import Note from '../Note';
 
 function Content() {
   return (
     <Routes>
-      <Route path="notes" element={<Notes />} />
-      <Route path="note" element={<Note />} />
-      <Route path="/" element={<Login />} />
+      <Route exact path="notes-list" element={<NotesList />} />
+      <Route exact path="note" element={<Note />} />
+      <Route exact path="/" element={<Login />} />
     </Routes>
   );
 }

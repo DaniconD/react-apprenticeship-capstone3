@@ -1,12 +1,15 @@
 import React from 'react';
-import { StyledHeader } from '../StyledComponents/StyledComponentsList';
+import { AiOutlineSearch } from 'react-icons/ai';
+import {
+  StyledHeader,
+  StyledInput,
+} from '../StyledComponents/StyledComponentsList';
 
 function Header() {
   return (
     <StyledHeader>
-      <li>a</li>
-      <li>b</li>
-      <li>c</li>
+      <AiOutlineSearch />
+      <StyledInput type="text" placeholder="Search..." onChange={() => {}} />
     </StyledHeader>
   );
 }
