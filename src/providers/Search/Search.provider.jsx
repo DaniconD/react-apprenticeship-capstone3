@@ -3,9 +3,9 @@ import React, { useContext, useState } from 'react';
 const SearchContext = React.createContext();
 
 function SearchProvider({ children }) {
-  const [search, setSearch] = useState('');
+  const [searchText, setSearch] = useState('');
   // eslint-disable-next-line react/jsx-no-constructed-context-values
-  const value = { search, setSearch };
+  const value = { searchText, setSearch };
   return (
     <SearchContext.Provider value={value}>{children}</SearchContext.Provider>
   );

@@ -10,7 +10,7 @@ import Note from '../Note';
 import AddNote from '../AddNote/AddNote.component';
 
 function NotesList() {
-  const { search } = useSearch();
+  const { searchText } = useSearch();
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -55,14 +55,17 @@ function NotesList() {
     setNotes(newNotes);
   };
 
+  const filteredNotes = notes.filter((note) =>
+    note.text.toLowerCase().includes(searchText)
+  );
+
   return (
     <div>
       <Header />
       <Container>
-        <h2>Add a Note!</h2>
-        {search}
+        <h2>{notes.length > 0 ? 'Your Notes' : 'Add a Note!'}</h2>
         <NotesListContainer>
-          {notes.map((note, index) => (
+          {filteredNotes.map((note, index) => (
             <Note
               // eslint-disable-next-line react/no-array-index-key
               key={`note/${index}`}
