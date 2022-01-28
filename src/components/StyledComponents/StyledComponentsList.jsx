@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 80px;
   min-height: 100vh;
   width: 100%;
@@ -15,21 +15,33 @@ export const StyledHeader = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
 
   background-color: white;
   height: 80px;
+  padding: 0 20px;
   position: fixed;
   top: 0;
   width: 100%;
 `;
 
+export const SearchBar = styled.div`
+  display: flex;
+  flex:direction: row;
+  align-items: center;
+
+  background-color: #e3e3e3;
+  border-radius: 15px;
+  padding: 12px 15px;
+  margin-left: 20px;
+  min-width: 60%;
+`;
+
 export const StyledInput = styled.input`
   background-color: #e3e3e3;
   border: none;
-  border-radius: 15px;
-  padding: 12px 15px;
-  width: 80%;
+  padding-left: 5px;
+  width: auto;
 `;
 
 export const StyledButton = styled.button`

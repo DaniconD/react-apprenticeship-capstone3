@@ -57,8 +57,10 @@ function NotesList() {
     <Container>
       <h2>Add a Note!</h2>
       <NotesListContainer>
-        {notes.map((note) => (
+        {notes.map((note, index) => (
           <Note
+            // eslint-disable-next-line react/no-array-index-key
+            key={`note/${index}`}
             id={note.id}
             text={note.text}
             color={note.color}
