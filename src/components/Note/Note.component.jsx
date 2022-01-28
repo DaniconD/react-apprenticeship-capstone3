@@ -7,7 +7,7 @@ import {
 } from '../StyledComponents/StyledComponentsList';
 
 function Note({ id, text, color, handleDeleteNote }) {
-  const [colorPicker, setColorPicker] = useState('');
+  const [colorPicker, setColorPicker] = useState(color);
 
   return (
     <NoteContainer>

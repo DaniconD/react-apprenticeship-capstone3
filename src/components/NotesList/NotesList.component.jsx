@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { useState } from 'react/cjs/react.development';
+import { useSearch } from '../../providers/Search/Search.provider';
 import {
   Container,
   NotesListContainer,
 } from '../StyledComponents/StyledComponentsList';
+import Header from '../Header';
 import Note from '../Note';
 import AddNote from '../AddNote/AddNote.component';
 
 function NotesList() {
+  const { search } = useSearch();
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -42,7 +44,7 @@ function NotesList() {
     const newNote = {
       id: nanoid(),
       text: noteText,
-      color: 'yellow',
+      color: '#fef68a',
     };
     const NewNotes = [...notes, newNote];
     setNotes(NewNotes);
@@ -54,22 +56,26 @@ function NotesList() {
   };
 
   return (
-    <Container>
-      <h2>Add a Note!</h2>
-      <NotesListContainer>
-        {notes.map((note, index) => (
-          <Note
-            // eslint-disable-next-line react/no-array-index-key
-            key={`note/${index}`}
-            id={note.id}
-            text={note.text}
-            color={note.color}
-            handleDeleteNote={deleteNote}
-          />
-        ))}
-        <AddNote handleAddNote={addNewNote} />
-      </NotesListContainer>
-    </Container>
+    <div>
+      <Header />
+      <Container>
+        <h2>Add a Note!</h2>
+        {search}
+        <NotesListContainer>
+          {notes.map((note, index) => (
+            <Note
+              // eslint-disable-next-line react/no-array-index-key
+              key={`note/${index}`}
+              id={note.id}
+              text={note.text}
+              color={note.color}
+              handleDeleteNote={deleteNote}
+            />
+          ))}
+          <AddNote handleAddNote={addNewNote} />
+        </NotesListContainer>
+      </Container>
+    </div>
   );
 }
 

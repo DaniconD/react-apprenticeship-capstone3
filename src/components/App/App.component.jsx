@@ -1,13 +1,14 @@
 import { BrowserRouter } from 'react-router-dom';
-import Header from '../Header';
+import SearchProvider from '../../providers/Search/Search.provider';
 import Content from '../Content';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <Content />
-    </BrowserRouter>
+    <SearchProvider>
+      <BrowserRouter>
+        <Content />
+      </BrowserRouter>
+    </SearchProvider>
   );
 }
 

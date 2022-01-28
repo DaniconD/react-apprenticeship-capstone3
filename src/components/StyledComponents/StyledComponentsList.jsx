@@ -41,7 +41,7 @@ export const StyledInput = styled.input`
   background-color: #e3e3e3;
   border: none;
   padding-left: 5px;
-  width: auto;
+  width: 100%;
 `;
 
 export const StyledButton = styled.button`

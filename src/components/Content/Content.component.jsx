@@ -7,8 +7,8 @@ import Note from '../Note';
 function Content() {
   return (
     <Routes>
+      <Route exact path="note/:id" element={<Note />} />
       <Route exact path="notes-list" element={<NotesList />} />
-      <Route exact path="note" element={<Note />} />
       <Route exact path="/" element={<Login />} />
     </Routes>
   );
