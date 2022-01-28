@@ -1,17 +1,24 @@
 import React from 'react';
 import { BiArchiveIn } from 'react-icons/bi';
+import { useState } from 'react/cjs/react.development';
 import {
   NoteContainer,
   NoteFooter,
 } from '../StyledComponents/StyledComponentsList';
 
-function Note() {
+function Note({ id, text, color, handleDeleteNote }) {
+  const [colorPicker, setColorPicker] = useState('');
+
   return (
     <NoteContainer>
-      <input type="text" placeholder="Add some text..." onChange={() => {}} />
+      <span>{text}</span>
       <NoteFooter>
-        <input type="button" value="Select a color" />
-        <BiArchiveIn size="1.3em" />
+        <input
+          type="color"
+          value={colorPicker}
+          onChange={(e) => setColorPicker(e.target.value)}
+        />
+        <BiArchiveIn size="1.3em" onClick={() => handleDeleteNote(id)} />
       </NoteFooter>
     </NoteContainer>
   );

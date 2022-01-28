@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -32,6 +32,17 @@ export const StyledInput = styled.input`
   width: 80%;
 `;
 
+export const StyledButton = styled.button`
+  background-color: #e3e3e3;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  &:hover {
+    background-color: #fef68a;
+    cursor: pointer;
+  }
+`;
+
 export const NotesListContainer = styled.div`
   display: grid;
   grid-gap: 1rem;
@@ -51,6 +62,22 @@ export const NoteContainer = styled.div`
   border-radius: 10px;
   min-height: 170px;
   padding: 1rem;
+  white-space: pre-wrap;
+
+  svg {
+    &:hover {
+      cursor: pointer;
+      color: #ff4e45;
+    }
+  }
+
+  ${(props) =>
+    props.add &&
+    css`
+      background: white;
+      border: 3px solid #e3e3e3;
+      color: black;
+    `}
 `;
 
 export const NoteFooter = styled.div`
