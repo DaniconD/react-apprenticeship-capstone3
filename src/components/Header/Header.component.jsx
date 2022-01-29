@@ -7,6 +7,7 @@ import {
   StyledHeader,
   StyledInput,
   SearchBar,
+  StyledButton,
 } from '../StyledComponents/StyledComponentsList';
 
 function Header() {
@@ -24,6 +25,7 @@ function Header() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </SearchBar>
+      <StyledButton>Toggle theme</StyledButton>
     </StyledHeader>
   );
 }

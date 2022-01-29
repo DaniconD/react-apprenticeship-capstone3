@@ -15,14 +15,14 @@ export const StyledHeader = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
 
   background-color: white;
   height: 80px;
-  padding: 0 20px;
+  margin: 0 5%;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 90%;
 `;
 
 export const SearchBar = styled.div`
@@ -32,15 +32,16 @@ export const SearchBar = styled.div`
 
   background-color: #e3e3e3;
   border-radius: 15px;
-  padding: 12px 15px;
-  margin-left: 20px;
-  min-width: 60%;
+  padding: 5px 15px;
+  margin: 0 5px;
+  min-width: 50%;
 `;
 
 export const StyledInput = styled.input`
   background-color: #e3e3e3;
   border: none;
-  padding-left: 5px;
+  font-size: 1.1rem;
+  margin: 5px;
   width: 100%;
 `;
 
@@ -48,7 +49,8 @@ export const StyledButton = styled.button`
   background-color: #e3e3e3;
   border: none;
   border-radius: 15px;
-  padding: 5px 10px;
+  font-size: 1.1rem;
+  padding: 10px 10px;
   &:hover {
     background-color: #fef68a;
     cursor: pointer;
