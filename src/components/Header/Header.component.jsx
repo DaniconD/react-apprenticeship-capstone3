@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FiMenu } from 'react-icons/fi';
 import { useSearch } from '../../providers/Search/Search.provider';
+import { useTheme } from '../../providers/Theme/Theme.provider';
 import {
   StyledHeader,
   StyledInput,
@@ -11,9 +12,10 @@ import {
 } from '../StyledComponents/StyledComponentsList';
 
 function Header() {
+  const { theme, setTheme } = useTheme();
   const { setSearch } = useSearch();
   return (
-    <StyledHeader>
+    <StyledHeader toggle={theme}>
       <Link to="/">
         <FiMenu />
       </Link>
@@ -25,7 +27,7 @@ function Header() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </SearchBar>
-      <StyledButton>Toggle theme</StyledButton>
+      <StyledButton onClick={() => setTheme(!theme)}>Toggle theme</StyledButton>
     </StyledHeader>
   );
 }

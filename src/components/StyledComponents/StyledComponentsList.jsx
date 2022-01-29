@@ -1,14 +1,24 @@
 /* eslint-disable import/prefer-default-export */
 import styled, { css } from 'styled-components';
 
+const dark = '#282c34';
+const light = '#fff';
+
 export const Container = styled.div`
+  background-color: ${(props) => (props.toggle ? light : dark)};
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 80px;
+  padding-top: 80px;
   min-height: 100vh;
   width: 100%;
+  h2 {
+    color: ${(props) => (props.toggle ? dark : light)} !important;
+  }
+  a {
+    color: ${(props) => (props.toggle ? dark : light)} !important;
+  }
 `;
 
 export const StyledHeader = styled.div`
@@ -17,12 +27,15 @@ export const StyledHeader = styled.div`
   flex-direction: row;
   justify-content: space-between;
 
-  background-color: white;
+  background-color: ${(props) => (props.toggle ? light : dark)};
   height: 80px;
-  margin: 0 5%;
+  padding: 0 5%;
   position: fixed;
   top: 0;
   width: 90%;
+  a {
+    color: ${(props) => (props.toggle ? dark : light)} !important;
+  }
 `;
 
 export const SearchBar = styled.div`

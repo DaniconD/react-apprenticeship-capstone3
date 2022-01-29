@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useSearch } from '../../providers/Search/Search.provider';
+import { useTheme } from '../../providers/Theme/Theme.provider';
 import {
   Container,
   NotesListContainer,
@@ -10,6 +11,7 @@ import Note from '../Note';
 import AddNote from '../AddNote/AddNote.component';
 
 function NotesList() {
+  const { theme } = useTheme();
   const { searchText } = useSearch();
   const [notes, setNotes] = useState([
     {
@@ -62,7 +64,7 @@ function NotesList() {
   return (
     <div>
       <Header />
-      <Container>
+      <Container toggle={theme}>
         <h2>{notes.length > 0 ? 'Your Notes' : 'Add a Note!'}</h2>
         <NotesListContainer>
           {filteredNotes.map((note, index) => (

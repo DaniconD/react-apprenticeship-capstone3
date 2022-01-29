@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import { Container } from '../StyledComponents/StyledComponentsList';
+import { useTheme } from '../../providers/Theme/Theme.provider';
 
 function Login() {
+  const { theme } = useTheme();
   const [email, setEmail] = useState(() => {
     // getting stored value
     const saved = localStorage.getItem('email');
@@ -19,7 +21,7 @@ function Login() {
   });
 
   return (
-    <Container>
+    <Container toggle={theme}>
       <input
         type="email"
         placeholder="email"
