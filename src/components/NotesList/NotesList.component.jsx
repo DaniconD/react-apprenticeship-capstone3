@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import { useSearch } from '../../providers/Search/Search.provider';
 import { useTheme } from '../../providers/Theme/Theme.provider';
@@ -40,6 +40,17 @@ function NotesList() {
       color: '#fef68a',
     },
   ]);
+  useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
+
+    if (savedNotes) {
+      setNotes(savedNotes);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('react-notes-app-data', JSON.stringify(notes));
+  }, [notes]);
 
   const addNewNote = (noteText) => {
     // eslint-disable-next-line no-multi-assign
