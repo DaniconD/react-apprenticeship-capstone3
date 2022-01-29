@@ -10,7 +10,7 @@ function Note({ id, text, color, handleDeleteNote }) {
   const [colorPicker, setColorPicker] = useState(color);
 
   return (
-    <NoteContainer>
+    <NoteContainer bgColor={colorPicker}>
       <span>{text}</span>
       <NoteFooter>
         <input

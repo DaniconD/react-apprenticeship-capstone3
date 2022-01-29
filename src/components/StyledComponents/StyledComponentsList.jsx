@@ -85,7 +85,7 @@ export const NoteContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  background-color: #fef68a;
+  background-color: ${(props) => props.bgColor || '#fef68a'};
   border-radius: 10px;
   min-height: 170px;
   padding: 1rem;
