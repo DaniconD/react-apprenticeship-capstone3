@@ -27,13 +27,18 @@ span
   max-width: 100%
   word-wrap: break-word
 
+small
+  font-size: .5em
+
 input
   &[type="text"]:focus
     outline: none
 
 textarea
+  background: transparent
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  font-size: calc(10px + 2vmin)
   border: none
-  background-color: white
   resize: none
 
 textarea:focus

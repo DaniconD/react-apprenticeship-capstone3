@@ -7,6 +7,7 @@ import {
 
 function AddNote({ handleAddNote }) {
   const [noteText, setNoteText] = useState('');
+  const [colorPicker, setColorPicker] = useState('#fef68a');
   const characterLimit = 200;
 
   const handleChange = (e) => {
@@ -17,7 +18,7 @@ function AddNote({ handleAddNote }) {
 
   const handleSaveClick = () => {
     if (noteText.trim().length > 0) {
-      handleAddNote(noteText);
+      handleAddNote(noteText, colorPicker);
       setNoteText('');
     }
   };
@@ -32,8 +33,13 @@ function AddNote({ handleAddNote }) {
         onChange={handleChange}
       />
       <NoteFooter>
+        <input
+          type="color"
+          value={colorPicker}
+          onChange={(e) => setColorPicker(e.target.value)}
+        />
         <small>{characterLimit - noteText.length} Remaining</small>
-        <StyledButton onClick={handleSaveClick}>Save</StyledButton>
+        <StyledButton onClick={handleSaveClick}>Add</StyledButton>
       </NoteFooter>
     </NoteContainer>
   );
