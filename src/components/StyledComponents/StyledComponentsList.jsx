@@ -19,6 +19,16 @@ export const Container = styled.div`
   a {
     color: ${(props) => (props.toggle ? dark : light)} !important;
   }
+
+  ${(props) =>
+    props.centered &&
+    css`
+      display: flex;
+      justify-content: center;
+      button {
+        margin 5px;
+      }
+    `}
 `;
 
 export const StyledHeader = styled.div`

@@ -16,6 +16,7 @@ function NotesList() {
   const { searchText } = useSearch();
   const [notes, setNotes] = useState(Data);
 
+  // Carga el contenido de LocalStore en la aplicacion
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
 
@@ -24,6 +25,7 @@ function NotesList() {
     }
   }, []);
 
+  // Actualiza el contenido de LocalStorage
   useEffect(() => {
     localStorage.setItem('react-notes-app-data', JSON.stringify(notes));
   }, [notes]);
@@ -39,13 +41,15 @@ function NotesList() {
     setNotes(NewNotes);
   };
 
-  const addToArchive = (id) => {
-    const newNotes = notes.filter((note) => note.id !== id);
+  const addToArchive = (noteId) => {
+    const newNotes = notes.filter(
+      (note) => note.id === noteId && note.state === 'visible'
+    );
     setNotes(newNotes);
   };
 
-  const deleteNote = (id) => {
-    const newNotes = notes.filter((note) => note.id !== id);
+  const deleteNote = (noteId) => {
+    const newNotes = notes.filter((note) => note.id !== noteId);
     setNotes(newNotes);
   };
 
