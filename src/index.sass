@@ -1,0 +1,45 @@
+$body_color: white //#1A1A40
+$text-color: #282c34
+
+body
+  color: $text-color
+  background: $body_color
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  font-size: calc(10px + 2vmin)
+  line-height: 140%
+  margin: 0
+  text-align: left
+
+h2
+  font-size: 2em
+
+a
+  color: $text-color
+  text-decoration: none
+
+p
+  margin: 0
+
+button
+  white-space: nowrap
+
+span
+  max-width: 100%
+  word-wrap: break-word
+
+small
+  font-size: .5em
+
+input
+  &[type="text"]:focus
+    outline: none
+
+textarea
+  background: transparent
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  font-size: calc(10px + 2vmin)
+  border: none
+  resize: none
+
+textarea:focus
+  outline: none
