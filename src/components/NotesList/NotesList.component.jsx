@@ -14,7 +14,7 @@ import Note from '../Note';
 function NotesList() {
   const { theme } = useTheme();
   const { searchText } = useSearch();
-  const [notes, setNotes] = useState(Data);
+  const [notes, setNotes] = useState([]);
 
   // Carga el contenido de LocalStore en la aplicacion
   useEffect(() => {
@@ -75,10 +75,10 @@ function NotesList() {
             : 'There are no notes; please create a new one using the creation note input.'}
         </h2>
         <NotesListContainer>
-          {filteredNotes.map((note, index) => (
+          {filteredNotes.map((note) => (
             <Note
               // eslint-disable-next-line react/no-array-index-key
-              key={`note/${index}`}
+              key={note.id}
               id={note.id}
               text={note.text}
               color={note.color}
