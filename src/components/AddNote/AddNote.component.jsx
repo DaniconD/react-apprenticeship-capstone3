@@ -20,6 +20,7 @@ function AddNote({ handleAddNote }) {
     if (noteText.trim().length > 0) {
       handleAddNote(noteText, colorPicker);
       setNoteText('');
+      setColorPicker('#fef68a');
     }
   };
 

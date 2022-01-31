@@ -9,18 +9,10 @@ import { useTheme } from '../../providers/Theme/Theme.provider';
 
 function Login() {
   const { theme } = useTheme();
-  const { loginWithRedirect, logout, user } = useAuth0();
+  const { loginWithRedirect, logout } = useAuth0();
 
   return (
     <Container toggle={theme} centered>
-      {user && (
-        <div>
-          asd
-          <img src={user.picture} alt="Profile" />
-          <h3>{user.name}</h3>
-          <h3>{user.email}</h3>
-        </div>
-      )}
       <div>
         <StyledButton onClick={() => loginWithRedirect()}>Log In</StyledButton>
         <StyledButton onClick={() => logout()}>Log Out</StyledButton>

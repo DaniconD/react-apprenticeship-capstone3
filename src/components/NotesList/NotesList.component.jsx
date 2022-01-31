@@ -35,16 +35,16 @@ function NotesList() {
       id: nanoid(),
       text: noteText,
       color: noteColor,
-      state: 'visible',
+      visible: true,
     };
     const NewNotes = [...notes, newNote];
     setNotes(NewNotes);
   };
 
   const addToArchive = (noteId) => {
-    const newNotes = notes.filter(
-      (note) => note.id === noteId && note.state === 'visible'
-    );
+    const noteToUpdate = notes.find((item) => item.id === noteId);
+    noteToUpdate.visible = false;
+    const newNotes = [...notes];
     setNotes(newNotes);
   };
 
@@ -61,8 +61,9 @@ function NotesList() {
     setNotes(newNotes);
   };
 
-  const filteredNotes = notes.filter((note) =>
-    note.text.toLowerCase().includes(searchText)
+  const filteredNotes = notes.filter(
+    (note) =>
+      note.text.toLowerCase().includes(searchText) && note.visible === true
   );
 
   return (

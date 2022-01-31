@@ -13,6 +13,7 @@ export const Container = styled.div`
   padding-top: 80px;
   min-height: 100vh;
   width: 100%;
+  transition: all 0.25s linear;
   h2 {
     color: ${(props) => (props.toggle ? dark : light)} !important;
   }
@@ -78,6 +79,12 @@ export const StyledButton = styled.button`
     background-color: #fef68a;
     cursor: pointer;
   }
+
+  ${(props) =>
+    props.white &&
+    css`
+      background: white;
+    `}
 `;
 
 export const NotesListContainer = styled.div`

@@ -28,6 +28,7 @@ function Note({ id, text, color, handleDeleteNote, handleUpdateNote }) {
           onChange={(e) => setColorPicker(e.target.value)}
         />
         <StyledButton
+          white
           onClick={() => handleUpdateNote(id, noteText, colorPicker)}
         >
           Update
