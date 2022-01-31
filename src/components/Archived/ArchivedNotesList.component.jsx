@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid';
-import { Data } from '../../data/data';
-import { useSearch } from '../../providers/Search/Search.provider';
 import { useTheme } from '../../providers/Theme/Theme.provider';
 import {
   Container,
   NotesListContainer,
 } from '../StyledComponents/StyledComponentsList';
 import Header from '../Header';
-import AddNote from '../AddNote/AddNote.component';
-import Note from '../Note';
+import ArchivedNote from './ArchivedNote.component';
 
-function NotesList() {
+function ArchivedNotesList() {
   const { theme } = useTheme();
-  const { searchText } = useSearch();
   const [notes, setNotes] = useState([]);
 
   // Carga el contenido de LocalStore en la aplicacion
@@ -30,28 +25,9 @@ function NotesList() {
     localStorage.setItem('react-notes-app-data', JSON.stringify(notes));
   }, [notes]);
 
-  const addNewNote = (noteText, noteColor) => {
-    const newNote = {
-      id: nanoid(),
-      text: noteText,
-      color: noteColor,
-      visible: true,
-    };
-    const NewNotes = [...notes, newNote];
-    setNotes(NewNotes);
-  };
-
-  const updateNote = (noteId, noteText, noteColor) => {
+  const restoreNote = (noteId) => {
     const noteToUpdate = notes.find((item) => item.id === noteId);
-    noteToUpdate.color = noteColor;
-    noteToUpdate.text = noteText;
-    const newNotes = [...notes];
-    setNotes(newNotes);
-  };
-
-  const addToArchive = (noteId) => {
-    const noteToUpdate = notes.find((item) => item.id === noteId);
-    noteToUpdate.visible = false;
+    noteToUpdate.visible = true;
     const newNotes = [...notes];
     setNotes(newNotes);
   };
@@ -61,10 +37,7 @@ function NotesList() {
     setNotes(newNotes);
   };
 
-  const filteredNotes = notes.filter(
-    (note) =>
-      note.text.toLowerCase().includes(searchText) && note.visible === true
-  );
+  const filteredNotes = notes.filter((note) => note.visible === false);
 
   return (
     <div>
@@ -72,25 +45,24 @@ function NotesList() {
       <Container toggle={theme}>
         <h2>
           {filteredNotes.length > 0
-            ? 'Your Notes'
-            : 'There are no notes, create a new one!'}
+            ? 'Archived notes'
+            : 'There are no Archived Notes'}
         </h2>
         <NotesListContainer>
           {filteredNotes.map((note) => (
-            <Note
+            <ArchivedNote
               key={note.id}
               id={note.id}
               text={note.text}
               color={note.color}
-              handleUpdateNote={updateNote}
-              handleAddToArchive={addToArchive}
+              handleRestoreNote={restoreNote}
+              handleDeleteNote={deleteNote}
             />
           ))}
-          <AddNote handleAddNote={addNewNote} />
         </NotesListContainer>
       </Container>
     </div>
   );
 }
 
-export default NotesList;
+export default ArchivedNotesList;

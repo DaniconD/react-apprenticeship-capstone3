@@ -2,12 +2,12 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Login from '../Login';
 import NotesList from '../NotesList';
-import Note from '../Note';
+import Archived from '../Archived';
 
 function Content() {
   return (
     <Routes>
-      <Route exact path="note/:id" element={<Note />} />
+      <Route exact path="archived" element={<Archived />} />
       <Route exact path="notes-list" element={<NotesList />} />
       <Route exact path="/" element={<Login />} />
     </Routes>

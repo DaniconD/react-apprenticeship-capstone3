@@ -107,11 +107,12 @@ export const NoteContainer = styled.div`
   min-height: 170px;
   padding: 1rem;
   white-space: pre-wrap;
+  transition: all 0.25s linear;
 
   svg {
     &:hover {
+      color: #fef68a;
       cursor: pointer;
-      color: #ff4e45;
     }
   }
 

@@ -6,7 +6,7 @@ import {
   StyledButton,
 } from '../StyledComponents/StyledComponentsList';
 
-function Note({ id, text, color, handleDeleteNote, handleUpdateNote }) {
+function Note({ id, text, color, handleUpdateNote, handleAddToArchive }) {
   const [noteText, setNoteText] = useState(text);
   const [colorPicker, setColorPicker] = useState(color);
 
@@ -33,7 +33,7 @@ function Note({ id, text, color, handleDeleteNote, handleUpdateNote }) {
         >
           Update
         </StyledButton>
-        <BiArchiveIn size="1.3em" onClick={() => handleDeleteNote(id)} />
+        <BiArchiveIn size="1.3em" onClick={() => handleAddToArchive(id)} />
       </NoteFooter>
     </NoteContainer>
   );
