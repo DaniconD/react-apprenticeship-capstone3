@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
-import { Data } from '../../data/data';
 import { useSearch } from '../../providers/Search/Search.provider';
 import { useTheme } from '../../providers/Theme/Theme.provider';
 import {
@@ -53,11 +52,6 @@ function NotesList() {
     const noteToUpdate = notes.find((item) => item.id === noteId);
     noteToUpdate.visible = false;
     const newNotes = [...notes];
-    setNotes(newNotes);
-  };
-
-  const deleteNote = (noteId) => {
-    const newNotes = notes.filter((note) => note.id !== noteId);
     setNotes(newNotes);
   };
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { BiArchiveIn } from 'react-icons/bi';
 import { BsTrash2 } from 'react-icons/bs';
 import {
   NoteContainer,

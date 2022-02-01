@@ -46,7 +46,7 @@ function ArchivedNotesList() {
         <h2>
           {filteredNotes.length > 0
             ? 'Archived notes'
-            : 'There are no Archived Notes'}
+            : "You don't have archived notes."}
         </h2>
         <NotesListContainer>
           {filteredNotes.map((note) => (

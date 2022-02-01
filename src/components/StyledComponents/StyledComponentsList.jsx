@@ -44,8 +44,51 @@ export const StyledHeader = styled.div`
   position: fixed;
   top: 0;
   width: 90%;
+  transition: all 0.25s linear;
   a {
     color: ${(props) => (props.toggle ? dark : light)} !important;
+  }
+  ${(props) =>
+    props.navbar &&
+    css`
+      display: none;
+    `}
+  ${(props) =>
+    props.displayList &&
+    css`
+      border-top: solid 1px black;
+      border-bottom: solid 1px black;
+      display: flex;
+      top: 80px;
+    `}
+`;
+
+export const StyledHeaderButton = styled.button`
+  background-color: transparent;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  padding: 10px;
+  &:hover {
+    background-color: #fef68a;
+    cursor: pointer;
+  }
+`;
+
+export const NavVarList = styled.ul`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-constent: flex-start;
+  transition: all 0.25s linear;
+  a {
+    border-radius: 15px;
+    padding: 10px;
+    margin-right: 10px;
+    &:hover {
+      color: #fef68a !important;
+      cursor: pointer;
+    }
   }
 `;
 
@@ -74,7 +117,7 @@ export const StyledButton = styled.button`
   border: none;
   border-radius: 15px;
   font-size: 1.1rem;
-  padding: 10px 10px;
+  padding: 10px;
   &:hover {
     background-color: #fef68a;
     cursor: pointer;
